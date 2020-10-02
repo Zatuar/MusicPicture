@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "604998668324",
+    "firebase_url": "https://musicpicture-3af22.firebaseio.com",
+    "project_id": "musicpicture-3af22",
+    "storage_bucket": "musicpicture-3af22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:604998668324:android:ef5dfb9c9688452d5588b1",
+        "android_client_info": {
+          "package_name": "com.example.musicpicture"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "604998668324-fdop2cgnqs1kn0u5tv60kmvvi7tgq6g7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.musicpicture",
+            "certificate_hash": "45456886df4be56df1f2bf80eed08f1664b9a809"
+          }
+        },
+        {
+          "client_id": "604998668324-seat9v08d4fb05k2iu0mukq71svgt034.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAGviH58f_7ur4z3Ho-klUCtt2hAXqyQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "604998668324-seat9v08d4fb05k2iu0mukq71svgt034.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
