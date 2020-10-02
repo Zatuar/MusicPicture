@@ -49,7 +49,7 @@ class MusicViewModel {
             .setLenient()
             .create()
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("http://raw.githubusercontent.com/Zatuar/Projet4A_Mobile/master/data/")
+            .baseUrl("http://raw.githubusercontent.com/Zatuar/MusicPicture/master/data/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
         val response: ApiRest = retrofit.create(ApiRest::class.java)

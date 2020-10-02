@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 
 interface ApiRest {
-    @GET("personnages_data.json")
+    @GET("data.json")
     fun loadMusics(): Call<List<Music>>
 }

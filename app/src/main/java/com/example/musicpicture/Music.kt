@@ -35,14 +35,6 @@ class Music {
     fun setAlbum(album: String) {
         this.album = album
     }
-    @SerializedName("link")
-    private var link: String? = null
-    fun getLink(): String? {
-        return link
-    }
-    fun setLink(link: String) {
-        this.link = link
-    }
     @SerializedName("style")
     private var style: String? = null
     fun getStyle(): String? {
@@ -58,6 +50,14 @@ class Music {
     }
     fun setTime(time: Int) {
         this.time = time
+    }
+    @SerializedName("link")
+    private var link: String? = null
+    fun getLink(): String? {
+        return link
+    }
+    fun setLink(link: String) {
+        this.link = link
     }
 
 }
