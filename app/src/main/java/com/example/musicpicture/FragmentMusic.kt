@@ -13,6 +13,7 @@ import org.koin.android.ext.android.inject
 class FragmentMusic : Fragment() {
 
     private val musicViewModel: MusicViewModel by inject()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -24,7 +25,7 @@ class FragmentMusic : Fragment() {
             text_music.text = it
         })
         musicViewModel.setButtonPlayer(root,context)
-        musicViewModel.callAPI(context)
+        musicViewModel.callAPI(root,context)
         return root
     }
 }

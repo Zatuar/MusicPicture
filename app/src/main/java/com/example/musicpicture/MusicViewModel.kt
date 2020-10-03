@@ -23,7 +23,7 @@ class MusicViewModel {
     private val mediaMusic = MediaPlayer()
     private val audioURL = "https://www.android-examples.com/wp-content/uploads/2016/04/Thunder-rumble.mp3"
     val text: MutableLiveData<String> = MutableLiveData()
-    private val musicList: RecyclerView? = null
+    //private var musicList: RecyclerView? = null
 
     init {
         text.value = "This is Music Fragment"
@@ -44,19 +44,21 @@ class MusicViewModel {
             }
         }
     }
-    fun callAPI(context: Context?){
+    fun callAPI(root: View, context: Context?){
+        //musicList = root.findViewById(R.id.musicList)
         val gson = GsonBuilder()
             .setLenient()
             .create()
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("http://raw.githubusercontent.com/Zatuar/MusicPicture/master/data/")
+            .baseUrl("https://raw.githubusercontent.com/Zatuar/MusicPicture/master/data/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
         val response: ApiRest = retrofit.create(ApiRest::class.java)
         val call: Call<List<Music>> = response.loadMusics()
         call.enqueue(object : Callback<List<Music> > {
             override fun onResponse(call: Call<List<Music>>, response: Response<List<Music>>) {
-                showMusic(response.body()!!,context)
+                print(response.body())
+                showMusic(response.body()!!,context,root)
             }
 
             override fun onFailure(call: Call<List<Music>>, t: Throwable) {
@@ -65,8 +67,13 @@ class MusicViewModel {
         })
     }
 
-    private fun showMusic(list: List<Music>,context: Context?) {
-        musicList!!.setHasFixedSize(true)
+    private fun showMusic(
+        list: List<Music>,
+        context: Context?,
+        root: View
+    ) {
+        val musicList: RecyclerView = root.findViewById(R.id.musicList)
+        musicList.setHasFixedSize(true)
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context!!)
         musicList.layoutManager = mLayoutManager
         val mAdapter: RecyclerView.Adapter<*> = MyAdapter(list, object : ClickItemListenner {

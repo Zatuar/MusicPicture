@@ -1,5 +1,4 @@
-{
-  "data": [
+[
     {
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/1d/ed/f7/1dedf7b1-ba97-bfc2-abe7-aaf23b935e04/053000089100_cover.jpg/72x72bb.jpg",
       "title": "Reaper",
@@ -18,5 +17,4 @@
       "time": 209,
       "link": ""
     }
-  ]
-}
+]
