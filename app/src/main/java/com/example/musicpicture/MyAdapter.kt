@@ -39,7 +39,7 @@ class MyAdapter(
         }
         holder.titleRow.text = key.getTitle()
         holder.authorRow.text = key.getAuthor()
-        holder.timeRow.text = key.getTime().toString()
+        holder.timeRow.text = key.getTime().toString() + "s"
         holder.itemView.setOnClickListener { listener!!.onItemClick(key) }
     }
 

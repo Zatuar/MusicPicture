@@ -23,7 +23,6 @@ class MusicViewModel {
     private val mediaMusic = MediaPlayer()
     private val audioURL = "https://www.android-examples.com/wp-content/uploads/2016/04/Thunder-rumble.mp3"
     val text: MutableLiveData<String> = MutableLiveData()
-    //private var musicList: RecyclerView? = null
 
     init {
         text.value = "This is Music Fragment"
@@ -78,7 +77,21 @@ class MusicViewModel {
         musicList.layoutManager = mLayoutManager
         val mAdapter: RecyclerView.Adapter<*> = MyAdapter(list, object : ClickItemListenner {
             override fun onItemClick(item: Music?) {
-                    //selectMe(item)
+                /**
+                mediaMusic.stop()
+                mediaMusic.setDataSource(context, Uri.parse(item!!.getLink()))
+                mediaMusic.prepareAsync()
+
+                val playPause = root.findViewById<Button>(R.id.playpause)
+                playPause.setOnClickListener {
+                    if (mediaMusic.isPlaying) {
+                        mediaMusic.pause()
+                        Toast.makeText(context, "Stop", Toast.LENGTH_SHORT).show()
+                    } else {
+                        mediaMusic.start()
+                        Toast.makeText(context, "Start", Toast.LENGTH_SHORT).show()
+                    }
+                }**/
             }
         }, context)
         musicList.adapter = mAdapter
