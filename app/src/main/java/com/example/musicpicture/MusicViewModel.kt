@@ -6,13 +6,14 @@ import android.media.MediaPlayer
 import android.net.Uri
 import android.util.Log
 import android.view.View
-import android.widget.Button
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.GsonBuilder
+import kotlinx.android.synthetic.main.fragment_music.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,23 +23,21 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MusicViewModel {
     private val mediaMusic = MediaPlayer()
     private val audioURL = "https://www.android-examples.com/wp-content/uploads/2016/04/Thunder-rumble.mp3"
-    val text: MutableLiveData<String> = MutableLiveData()
+    private lateinit var playPause: ImageButton
 
     init {
-        text.value = "This is Music Fragment"
+        mediaMusic.setAudioAttributes(AudioAttributes.Builder().setContentType(AudioAttributes.CONTENT_TYPE_MUSIC).build())
     }
     fun setButtonPlayer(root: View?, context: Context?) {
-        mediaMusic.setAudioAttributes(AudioAttributes.Builder().setContentType(AudioAttributes.CONTENT_TYPE_MUSIC).build())
-        mediaMusic.setDataSource(context!!, Uri.parse(audioURL))
-        mediaMusic.prepareAsync()
-
-        val playPause = root!!.findViewById<Button>(R.id.playpause)
+        playPause = root!!.findViewById(R.id.playpause)
         playPause.setOnClickListener {
             if (mediaMusic.isPlaying) {
                 mediaMusic.pause()
+                playPause.setImageResource(R.drawable.ic_play)
                 Toast.makeText(context, "Stop", Toast.LENGTH_SHORT).show()
             } else {
                 mediaMusic.start()
+                playPause.setImageResource(R.drawable.ic_pause)
                 Toast.makeText(context, "Start", Toast.LENGTH_SHORT).show()
             }
         }
@@ -77,25 +76,20 @@ class MusicViewModel {
         musicList.layoutManager = mLayoutManager
         val mAdapter: RecyclerView.Adapter<*> = MyAdapter(list, object : ClickItemListenner {
             override fun onItemClick(item: Music?) {
-                /**
                 mediaMusic.stop()
                 mediaMusic.setDataSource(context, Uri.parse(item!!.getLink()))
                 mediaMusic.prepareAsync()
-
-                val playPause = root.findViewById<Button>(R.id.playpause)
-                playPause.setOnClickListener {
-                    if (mediaMusic.isPlaying) {
-                        mediaMusic.pause()
-                        Toast.makeText(context, "Stop", Toast.LENGTH_SHORT).show()
-                    } else {
-                        mediaMusic.start()
-                        Toast.makeText(context, "Start", Toast.LENGTH_SHORT).show()
-                    }
-                }**/
+                mediaMusic.start()
+                playPause.setImageResource(R.drawable.ic_pause)
+                //setPlayingMusic()
             }
         }, context)
         musicList.adapter = mAdapter
         val mDivider = DividerItemDecoration(musicList.context, DividerItemDecoration.VERTICAL)
         musicList.addItemDecoration(mDivider)
+    }
+
+    private fun setPlayingMusic() {
+
     }
 }

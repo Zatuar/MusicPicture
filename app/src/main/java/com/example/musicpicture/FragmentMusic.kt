@@ -21,11 +21,9 @@ class FragmentMusic : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_music, container, false)
 
-        musicViewModel.text.observe(viewLifecycleOwner, Observer {
-            text_music.text = it
-        })
         musicViewModel.setButtonPlayer(root,context)
         musicViewModel.callAPI(root,context)
+
         return root
     }
 }
