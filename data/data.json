@@ -1,20 +1,20 @@
 [
     {
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/1d/ed/f7/1dedf7b1-ba97-bfc2-abe7-aaf23b935e04/053000089100_cover.jpg/72x72bb.jpg",
+      "icon": "https://raw.githubusercontent.com/Zatuar/MusicPicture/master/data/icons/reaper.jpg",
       "title": "Reaper",
       "author": "Glaceo x RIELL",
       "album": "reaper",
       "style": "Dance POP",
       "time": 169,
-      "link": ""
+      "link": "https://raw.githubusercontent.com/Zatuar/MusicPicture/master/data/Musics/Reaper.mp3"
     },
     {
-      "icon": "https://is5-ssl.mzstatic.com/image/thumb/Music124/v4/ca/87/65/ca87652b-7a55-63e4-6cff-cf462c3531c9/075679822567.jpg/72x72bb.jpg",
+      "icon": "https://raw.githubusercontent.com/Zatuar/MusicPicture/master/data/icons/victorious.jpg",
       "title": "Terrify the Dark",
       "author": "Skillet",
       "album": "Victorious",
       "style": "Rock alternatif",
       "time": 209,
-      "link": ""
+      "link": "https://raw.githubusercontent.com/Zatuar/MusicPicture/master/data/Musics/TerrifyTheDark.m4a"
     }
 ]
